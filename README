@@ -1,0 +1,64 @@
+README file for petacopy
+========================
+(c) skrullrEMOVETHIS at gmail dot com, 07/12 GNU GPL
+
+I AM NOT RESPONSIBLE FOR DATA CORRUPTION, DELETION OR ANY LOSES USING THIS
+SCRIPT. USE AT YOUR OWN RISK.
+
+Description of petacopy
+-----------------------
+Petacopy is a intelligent file copy script. It resembles Codesector's
+TeraCopy (www.teracopy.com).
+
+What is working now:
+* Accepts one file only as source.
+* Accepts a (new) filename or a directory as destination.
+* Compute md5sums and copy file reading one time only from source.
+* Catch SIGINT and SIGTERM and exits gracefully (will delete destination
+  file.)
+* Uses /dev/shm for temporary storage (md5 sum src & dst hashes; FIFOs.
+  No file data is actually written there.)
+* Uses O_DIRECT for reading destination file md5 sum (avoiding pagecache
+  hits.)
+
+Planned:
+* Help
+* Man page
+* Copy multiple files
+* Recursive copy
+* Program options:
+  - set update interval
+  - set copy speed limit
+  - avoid overwritting destination
+  - do not delete incomplete file on destination
+  - resume incomplete file on destination
+    (write as a new file then compare md5 if sucessful then delete
+     incomplete file. In case of failed comparison, delete new file
+     and keep incomplete file)
+  - dd_rescue advanced options
+
+
+Copyright
+---------
+This little program is protected by the GNU General Public License (GPL). 
+(See the file COPYING, which probably exists a few hundred times on your
+ computer. If not: I will send you one.)
+To summarize:
+* You are free to use this program for anything you like. However, if you
+  release a program that uses code from this program, your program must be
+  released under the terms of the GNU GPL again.
+* You are allowed to put this program on CDs or other media and charge a 
+  fee for copying and distributing it. You have to provide the source code
+  (or a written offer to provide it) and the GPL text, too, then.
+* There is no warranty whatsoever for this program. If it crashes your
+  disks, it's at your risk.
+* This summary does not replace reading the GNU GPL itself.
+
+
+Feedback
+--------
+Feedback is welcome. Send me an e-mail.
+The web page of this program is 
+http://www.github.com/skrull/petacopy/
+
+2012-07-30
