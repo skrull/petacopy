@@ -1,27 +1,36 @@
 README file for petacopy
 ========================
-(c) skrullrEMOVETHIS at gmail dot com, 07/12 GNU GPL
+(c) skrull 07/12 GNU GPL
 
-I AM NOT RESPONSIBLE FOR DATA CORRUPTION, DELETION OR ANY LOSES USING THIS
-SCRIPT. USE AT YOUR OWN RISK.
+reskmoruvetllhis gmail dot com
+  ||  ||   ||    |||||     |||
+
+
+DISCLAIMER: 
+
+I AM NOT RESPONSIBLE FOR DATA CORRUPTION OR ANY LOSSES DUE TO
+USAGE OF THIS SCRIPT. USE AT YOUR OWN RISK.
+
 
 Description of petacopy
 -----------------------
-Petacopy is a intelligent file copy script. It resembles Codesector's
+Petacopy is a (quick hack) file copy script. It resembles Codesector's
 TeraCopy (www.teracopy.com).
 
 What is working now:
 * Accepts one file only as source.
-* Accepts a (new) filename or a directory as destination.
-* Compute md5sums and copy file reading one time only from source.
-* Catch SIGINT and SIGTERM and exits gracefully (will delete destination
-  file.)
-* Uses /dev/shm for temporary storage (md5 sum src & dst hashes; FIFOs.
-  No file data is actually written there.)
-* Uses O_DIRECT for reading destination file md5 sum (avoiding pagecache
+* Accepts a new filename or a directory as destination.
+* Write destination file and compute md5sum simultaneously while reading from
+  source file once.
+* Uses /dev/shm for temporary storage (FIFOs; No file data is actually
+  written there.)
+
+
+* TODO: Uses O_DIRECT for reading destination file md5 sum (avoiding pagecache
   hits.)
 
 Planned:
+* Error handling
 * Help
 * Man page
 * Copy multiple files
@@ -29,7 +38,7 @@ Planned:
 * Program options:
   - set update interval
   - set copy speed limit
-  - avoid overwritting destination
+  - DONE: avoid overwritting destination
   - do not delete incomplete file on destination
   - resume incomplete file on destination
     (write as a new file then compare md5 if sucessful then delete
@@ -40,7 +49,7 @@ Planned:
 
 Copyright
 ---------
-This little program is protected by the GNU General Public License (GPL). 
+This little script is protected by the GNU General Public License (GPL). 
 (See the file COPYING, which probably exists a few hundred times on your
  computer. If not: I will send you one.)
 To summarize:
@@ -62,3 +71,9 @@ The web page of this program is
 http://www.github.com/skrull/petacopy/
 
 2012-07-30
+
+
+Version History
+---------------
+2013-12-17  Code was very ugly. Rewrote from scratch.
+2013-12-18  A test version is released.
